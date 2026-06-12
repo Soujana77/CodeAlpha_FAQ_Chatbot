@@ -1,0 +1,16 @@
+question,answer
+What is Python?,Python is a high-level programming language used for software development and data science.
+What is NLP?,NLP stands for Natural Language Processing which helps computers understand human language.
+What is Machine Learning?,Machine Learning is a branch of AI that enables systems to learn from data.
+What is Artificial Intelligence?,Artificial Intelligence is the simulation of human intelligence in machines.
+What is Streamlit?,Streamlit is a Python framework used to build interactive web applications quickly.
+What is Scikit-Learn?,Scikit-Learn is a machine learning library for Python.
+What is Pandas?,Pandas is a Python library used for data analysis and manipulation.
+What is NumPy?,NumPy is a Python library for numerical computing and array operations.
+What is TF-IDF?,TF-IDF is a technique used to measure the importance of words in a document.
+What is Cosine Similarity?,Cosine Similarity measures the similarity between two text vectors.
+How does a chatbot work?,A chatbot processes user input and returns relevant responses based on predefined logic or AI models.
+What is data preprocessing?,Data preprocessing involves cleaning and transforming raw data before analysis.
+What is tokenization?,Tokenization is the process of splitting text into smaller units called tokens.
+What are stopwords?,Stopwords are commonly used words that are often removed during text preprocessing.
+What is text cleaning?,Text cleaning involves removing unwanted characters symbols and formatting from text.
