@@ -1,5 +1,6 @@
 import string
 import nltk
+import pandas as pd
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -34,7 +35,20 @@ def preprocess_text(text):
     cleaned_text = " ".join(filtered_tokens)
 
     return cleaned_text
+def load_faq_data():
+    """
+    Load FAQ dataset and preprocess questions
+    """
 
-sample = "Can you tell me about Python Programming?"
+    df = pd.read_csv("faq_data.csv")
 
-print(preprocess_text(sample))
+    df["processed_question"] = df["question"].apply(
+        preprocess_text
+    )
+
+    return df
+
+faq_df = load_faq_data()
+
+print(faq_df[["question", "processed_question"]])
+
