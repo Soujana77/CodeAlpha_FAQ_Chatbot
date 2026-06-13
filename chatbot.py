@@ -1,9 +1,10 @@
 import string
-import nltk
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
+
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 stop_words = set(stopwords.words("english"))
@@ -36,6 +37,8 @@ def preprocess_text(text):
     cleaned_text = " ".join(filtered_tokens)
 
     return cleaned_text
+
+
 def load_faq_data():
     """
     Load FAQ dataset and preprocess questions
@@ -48,6 +51,8 @@ def load_faq_data():
     )
 
     return df
+
+
 def create_tfidf_vectors(df):
     """
     Create TF-IDF vectors from processed questions
@@ -61,12 +66,15 @@ def create_tfidf_vectors(df):
 
     return vectorizer, tfidf_matrix
 
+
 def get_answer(user_question, df, vectorizer, tfidf_matrix):
     """
     Find the best matching FAQ answer
     """
 
-    processed_question = preprocess_text(user_question)
+    processed_question = preprocess_text(
+        user_question
+    )
 
     user_vector = vectorizer.transform(
         [processed_question]
@@ -81,9 +89,18 @@ def get_answer(user_question, df, vectorizer, tfidf_matrix):
 
     confidence_score = similarity_scores[0][best_match_index]
 
+    if confidence_score < 0.30:
+        return (
+            "Sorry, I couldn't find a relevant answer.",
+            confidence_score
+        )
+
     answer = df.iloc[best_match_index]["answer"]
 
     return answer, confidence_score
+
+
+# Temporary Testing
 
 faq_df = load_faq_data()
 
@@ -91,7 +108,7 @@ vectorizer, tfidf_matrix = create_tfidf_vectors(
     faq_df
 )
 
-question = "Tell me about Python"
+question = "Who won the IPL final?"
 
 answer, score = get_answer(
     question,
