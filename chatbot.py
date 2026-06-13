@@ -1,7 +1,7 @@
 import string
 import nltk
 import pandas as pd
-
+from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
@@ -47,8 +47,24 @@ def load_faq_data():
     )
 
     return df
+def create_tfidf_vectors(df):
+    """
+    Create TF-IDF vectors from processed questions
+    """
+
+    vectorizer = TfidfVectorizer()
+
+    tfidf_matrix = vectorizer.fit_transform(
+        df["processed_question"]
+    )
+
+    return vectorizer, tfidf_matrix
 
 faq_df = load_faq_data()
 
-print(faq_df[["question", "processed_question"]])
+vectorizer, tfidf_matrix = create_tfidf_vectors(
+    faq_df
+)
 
+print("TF-IDF Matrix Shape:")
+print(tfidf_matrix.shape)
