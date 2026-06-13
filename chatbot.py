@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from sklearn.metrics.pairwise import cosine_similarity
 
 stop_words = set(stopwords.words("english"))
 
@@ -60,11 +61,45 @@ def create_tfidf_vectors(df):
 
     return vectorizer, tfidf_matrix
 
+def get_answer(user_question, df, vectorizer, tfidf_matrix):
+    """
+    Find the best matching FAQ answer
+    """
+
+    processed_question = preprocess_text(user_question)
+
+    user_vector = vectorizer.transform(
+        [processed_question]
+    )
+
+    similarity_scores = cosine_similarity(
+        user_vector,
+        tfidf_matrix
+    )
+
+    best_match_index = similarity_scores.argmax()
+
+    confidence_score = similarity_scores[0][best_match_index]
+
+    answer = df.iloc[best_match_index]["answer"]
+
+    return answer, confidence_score
+
 faq_df = load_faq_data()
 
 vectorizer, tfidf_matrix = create_tfidf_vectors(
     faq_df
 )
 
-print("TF-IDF Matrix Shape:")
-print(tfidf_matrix.shape)
+question = "Tell me about Python"
+
+answer, score = get_answer(
+    question,
+    faq_df,
+    vectorizer,
+    tfidf_matrix
+)
+
+print("Question:", question)
+print("Answer:", answer)
+print("Confidence:", round(score, 2))
