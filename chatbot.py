@@ -95,9 +95,9 @@ def get_answer(user_question, df, vectorizer, tfidf_matrix):
     return answer, confidence_score
 
 
-def chatbot():
+def initialize_chatbot():
     """
-    Terminal-based chatbot
+    Load FAQ data and create TF-IDF vectors
     """
 
     faq_df = load_faq_data()
@@ -106,27 +106,18 @@ def chatbot():
         faq_df
     )
 
-    print("\nFAQ Chatbot Started!")
-    print("Type 'exit' to quit.\n")
-
-    while True:
-
-        user_question = input("You: ")
-
-        if user_question.lower() == "exit":
-            print("Bot: Goodbye!")
-            break
-
-        answer, score = get_answer(
-            user_question,
-            faq_df,
-            vectorizer,
-            tfidf_matrix
-        )
-
-        print(f"Bot: {answer}")
-        print(f"Confidence: {round(score, 2)}\n")
-
+    return faq_df, vectorizer, tfidf_matrix
 
 if __name__ == "__main__":
-    chatbot()
+
+    faq_df, vectorizer, tfidf_matrix = initialize_chatbot()
+
+    answer, score = get_answer(
+        "What is Python?",
+        faq_df,
+        vectorizer,
+        tfidf_matrix
+    )
+
+    print(answer)
+    print(score)
