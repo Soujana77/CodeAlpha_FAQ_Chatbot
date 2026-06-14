@@ -15,25 +15,20 @@ def preprocess_text(text):
     Clean and preprocess user text
     """
 
-    # Convert to lowercase
     text = text.lower()
 
-    # Remove punctuation
     text = text.translate(
         str.maketrans("", "", string.punctuation)
     )
 
-    # Tokenize
     tokens = word_tokenize(text)
 
-    # Remove stopwords
     filtered_tokens = [
         word
         for word in tokens
         if word not in stop_words
     ]
 
-    # Join back into string
     cleaned_text = " ".join(filtered_tokens)
 
     return cleaned_text
@@ -100,23 +95,38 @@ def get_answer(user_question, df, vectorizer, tfidf_matrix):
     return answer, confidence_score
 
 
-# Temporary Testing
+def chatbot():
+    """
+    Terminal-based chatbot
+    """
 
-faq_df = load_faq_data()
+    faq_df = load_faq_data()
 
-vectorizer, tfidf_matrix = create_tfidf_vectors(
-    faq_df
-)
+    vectorizer, tfidf_matrix = create_tfidf_vectors(
+        faq_df
+    )
 
-question = "Who won the IPL final?"
+    print("\nFAQ Chatbot Started!")
+    print("Type 'exit' to quit.\n")
 
-answer, score = get_answer(
-    question,
-    faq_df,
-    vectorizer,
-    tfidf_matrix
-)
+    while True:
 
-print("Question:", question)
-print("Answer:", answer)
-print("Confidence:", round(score, 2))
+        user_question = input("You: ")
+
+        if user_question.lower() == "exit":
+            print("Bot: Goodbye!")
+            break
+
+        answer, score = get_answer(
+            user_question,
+            faq_df,
+            vectorizer,
+            tfidf_matrix
+        )
+
+        print(f"Bot: {answer}")
+        print(f"Confidence: {round(score, 2)}\n")
+
+
+if __name__ == "__main__":
+    chatbot()
