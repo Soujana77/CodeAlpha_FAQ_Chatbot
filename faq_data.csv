@@ -1,16 +1,51 @@
 question,answer
-What is Python?,Python is a high-level programming language used for software development and data science.
-What is NLP?,NLP stands for Natural Language Processing which helps computers understand human language.
-What is Machine Learning?,Machine Learning is a branch of AI that enables systems to learn from data.
-What is Artificial Intelligence?,Artificial Intelligence is the simulation of human intelligence in machines.
-What is Streamlit?,Streamlit is a Python framework used to build interactive web applications quickly.
-What is Scikit-Learn?,Scikit-Learn is a machine learning library for Python.
-What is Pandas?,Pandas is a Python library used for data analysis and manipulation.
-What is NumPy?,NumPy is a Python library for numerical computing and array operations.
-What is TF-IDF?,TF-IDF is a technique used to measure the importance of words in a document.
-What is Cosine Similarity?,Cosine Similarity measures the similarity between two text vectors.
-How does a chatbot work?,A chatbot processes user input and returns relevant responses based on predefined logic or AI models.
-What is data preprocessing?,Data preprocessing involves cleaning and transforming raw data before analysis.
-What is tokenization?,Tokenization is the process of splitting text into smaller units called tokens.
-What are stopwords?,Stopwords are commonly used words that are often removed during text preprocessing.
-What is text cleaning?,Text cleaning involves removing unwanted characters symbols and formatting from text.
+What is Python?,Python is a high-level programming language used for web development data science automation and artificial intelligence.
+Why is Python popular?,Python is popular because it is easy to learn readable and has a large ecosystem of libraries.
+What are the features of Python?,Python offers simplicity readability portability and extensive library support.
+What is a variable?,A variable is a named storage location used to hold data values in a program.
+What is a function?,A function is a reusable block of code designed to perform a specific task.
+What is a loop?,A loop repeatedly executes a block of code until a condition is met.
+What is a class in Python?,A class is a blueprint for creating objects in object oriented programming.
+What is object oriented programming?,Object oriented programming is a programming paradigm based on objects classes and inheritance.
+What is inheritance?,Inheritance allows one class to acquire the properties and methods of another class.
+What is polymorphism?,Polymorphism allows objects of different classes to be treated through a common interface.
+What is an API?,An API is a set of rules that enables communication between different software applications.
+What is Git?,Git is a distributed version control system used to track changes in source code.
+What is GitHub?,GitHub is a cloud based platform for hosting and collaborating on Git repositories.
+Why use version control?,Version control helps track code changes collaborate with teams and maintain project history.
+What is debugging?,Debugging is the process of finding and fixing errors in software programs.
+What is Artificial Intelligence?,Artificial Intelligence is the simulation of human intelligence by machines.
+What is Machine Learning?,Machine Learning is a subset of AI that enables systems to learn from data.
+What is Deep Learning?,Deep Learning is a branch of machine learning that uses neural networks with multiple layers.
+What is Generative AI?,Generative AI creates new content such as text images audio or code.
+What are neural networks?,Neural networks are computing systems inspired by the structure of the human brain.
+What is supervised learning?,Supervised learning uses labeled data to train machine learning models.
+What is unsupervised learning?,Unsupervised learning finds patterns and relationships in unlabeled data.
+What is reinforcement learning?,Reinforcement learning trains agents using rewards and penalties.
+What is overfitting?,Overfitting occurs when a model learns training data too well and performs poorly on new data.
+What is underfitting?,Underfitting occurs when a model fails to learn patterns from training data.
+What is NLP?,NLP stands for Natural Language Processing and helps computers understand human language.
+What is tokenization?,Tokenization is the process of breaking text into smaller units called tokens.
+What are stopwords?,Stopwords are common words that are often removed during text preprocessing.
+What is stemming?,Stemming reduces words to their root form by removing suffixes.
+What is lemmatization?,Lemmatization converts words to their meaningful base form.
+What is text preprocessing?,Text preprocessing involves cleaning and preparing text for analysis.
+What is text cleaning?,Text cleaning removes unwanted characters symbols and formatting from text.
+What is TF-IDF?,TF-IDF measures the importance of a word in a document relative to a collection of documents.
+What is cosine similarity?,Cosine similarity measures how similar two text vectors are.
+What is vectorization?,Vectorization converts text into numerical representations for machine learning models.
+What is a chatbot?,A chatbot is a software application that interacts with users through conversation.
+What is an FAQ chatbot?,An FAQ chatbot answers questions by matching user queries to predefined answers.
+What is a rule based chatbot?,A rule based chatbot responds according to predefined rules and conditions.
+What is an AI chatbot?,An AI chatbot uses machine learning and NLP techniques to understand user queries.
+What is Streamlit?,Streamlit is a Python framework used to create interactive web applications.
+What is Pandas?,Pandas is a Python library for data analysis and manipulation.
+What is NumPy?,NumPy is a Python library for numerical computations and array operations.
+What is Scikit Learn?,Scikit Learn is a machine learning library that provides algorithms and tools for data analysis.
+What is TensorFlow?,TensorFlow is an open source framework used for machine learning and deep learning applications.
+What is Matplotlib?,Matplotlib is a Python library used for data visualization and plotting.
+What is data science?,Data science combines statistics programming and domain knowledge to extract insights from data.
+What is data analysis?,Data analysis involves examining cleaning and interpreting data to discover useful information.
+What is data visualization?,Data visualization is the graphical representation of data using charts graphs and dashboards.
+What is big data?,Big data refers to extremely large and complex datasets that require advanced processing techniques.
+What is cloud computing?,Cloud computing provides computing resources such as storage and servers over the internet.
