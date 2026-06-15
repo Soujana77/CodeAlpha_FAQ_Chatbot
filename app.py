@@ -8,28 +8,60 @@ from chatbot import (
 st.set_page_config(
     page_title="AI FAQ Chatbot",
     page_icon="🤖",
-    layout="centered"
-)
-
-st.title("🤖 AI FAQ Chatbot")
-
-st.write(
-    "Ask questions about AI, Programming, Machine Learning, NLP, Python, Data Science, and more."
+    layout="wide"
 )
 
 # Initialize chatbot
 faq_df, vectorizer, tfidf_matrix = initialize_chatbot()
 
-# Chat history storage
+# Session state
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# User input
-user_question = st.text_input(
-    "Enter your question:"
+# Sidebar
+with st.sidebar:
+
+    st.title("🤖 AI FAQ Chatbot")
+
+    st.markdown("---")
+
+    st.subheader("📌 About")
+
+    st.write(
+        """
+        This chatbot answers AI and Programming related questions using:
+
+        - NLP
+        - TF-IDF Vectorization
+        - Cosine Similarity
+        - Streamlit
+        """
+    )
+
+    st.markdown("---")
+
+    st.metric(
+        "Knowledge Base Size",
+        len(faq_df)
+    )
+
+    if st.button("🗑️ Clear Chat"):
+
+        st.session_state.chat_history = []
+
+        st.rerun()
+
+# Main Page
+st.title("🤖 AI FAQ Chatbot")
+
+st.write(
+    "Ask questions related to AI, Machine Learning, Python, NLP, Data Science, and Programming."
 )
 
-# Ask button
+user_question = st.text_input(
+    "Ask a question:"
+)
+
 if st.button("Ask"):
 
     if user_question.strip():
@@ -59,26 +91,30 @@ if st.button("Ask"):
             }
         )
 
-    else:
-        st.warning(
-            "Please enter a question."
-        )
-
-# Display chat history
-st.subheader("💬 Chat History")
+# Chat Display
+st.subheader("💬 Conversation")
 
 for chat in reversed(st.session_state.chat_history):
 
-    st.markdown(
-        f"**🧑 You:** {chat['question']}"
-    )
+    with st.container():
 
-    st.markdown(
-        f"**🤖 Bot:** {chat['answer']}"
-    )
+        st.markdown(
+            f"### 🧑 You\n{chat['question']}"
+        )
 
-    st.caption(
-        f"{chat['label']} | Confidence Score: {chat['confidence']}"
-    )
+        st.markdown(
+            f"### 🤖 Bot\n{chat['answer']}"
+        )
 
-    st.divider()
+        st.caption(
+            f"{chat['label']} | Confidence Score: {chat['confidence']}"
+        )
+
+        st.markdown("---")
+
+# Footer
+st.markdown("---")
+
+st.caption(
+    "Built using Python, NLP, TF-IDF, Cosine Similarity, and Streamlit."
+)
