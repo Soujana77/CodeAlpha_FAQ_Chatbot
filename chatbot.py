@@ -108,16 +108,3 @@ def initialize_chatbot():
 
     return faq_df, vectorizer, tfidf_matrix
 
-if __name__ == "__main__":
-
-    faq_df, vectorizer, tfidf_matrix = initialize_chatbot()
-
-    answer, score = get_answer(
-        "What is Python?",
-        faq_df,
-        vectorizer,
-        tfidf_matrix
-    )
-
-    print(answer)
-    print(score)

@@ -6,60 +6,145 @@ from chatbot import (
 )
 
 st.set_page_config(
-    page_title="AI FAQ Chatbot",
+    page_title="AI FAQ Assistant",
     page_icon="🤖",
     layout="wide"
 )
 
-# Initialize chatbot
-faq_df, vectorizer, tfidf_matrix = initialize_chatbot()
+# ---------- CUSTOM CSS ----------
 
-# Session state
+st.markdown("""
+<style>
+
+.main {
+    padding-top: 1rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #1f2937, #374151);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.user-bubble {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #2563eb;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.bot-bubble {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #f3f4f6;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.metric-card {
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: gray;
+    margin-top: 30px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- CACHE ----------
+
+@st.cache_resource
+def load_chatbot():
+    return initialize_chatbot()
+
+faq_df, vectorizer, tfidf_matrix = load_chatbot()
+
+# ---------- SESSION ----------
+
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# Sidebar
+# ---------- SIDEBAR ----------
+
 with st.sidebar:
 
-    st.title("🤖 AI FAQ Chatbot")
+    st.title("🤖 AI FAQ Assistant")
 
     st.markdown("---")
 
-    st.subheader("📌 About")
+    st.subheader("About Project")
 
-    st.write(
-        """
-        This chatbot answers AI and Programming related questions using:
+    st.write("""
+    AI-powered FAQ chatbot built using:
 
-        - NLP
-        - TF-IDF Vectorization
-        - Cosine Similarity
-        - Streamlit
-        """
-    )
+    • Python
+
+    • NLP
+
+    • TF-IDF
+
+    • Cosine Similarity
+
+    • Streamlit
+    """)
 
     st.markdown("---")
 
     st.metric(
-        "Knowledge Base Size",
-        len(faq_df)
+        "Knowledge Base",
+        f"{len(faq_df)} FAQs"
     )
 
-    if st.button("🗑️ Clear Chat"):
+    st.metric(
+        "Conversations",
+        len(st.session_state.chat_history)
+    )
 
+    if st.button("🗑 Clear Chat"):
         st.session_state.chat_history = []
-
         st.rerun()
 
-# Main Page
-st.title("🤖 AI FAQ Chatbot")
+# ---------- HERO ----------
 
-st.write(
-    "Ask questions related to AI, Machine Learning, Python, NLP, Data Science, and Programming."
-)
+st.markdown("""
+<div class="hero">
+<h1>🤖 AI FAQ Assistant</h1>
+<p>Ask questions about AI, Programming, Python, Machine Learning, NLP and Data Science</p>
+</div>
+""", unsafe_allow_html=True)
+
+# ---------- WELCOME ----------
+
+if len(st.session_state.chat_history) == 0:
+
+    st.info("""
+Try asking:
+
+• What is Machine Learning?
+
+• What is TensorFlow?
+
+• Explain NLP
+
+• What is GitHub?
+
+• What is Cloud Computing?
+""")
+
+# ---------- INPUT ----------
 
 user_question = st.text_input(
-    "Ask a question:"
+    "Ask your question:"
 )
 
 if st.button("Ask"):
@@ -76,45 +161,55 @@ if st.button("Ask"):
         confidence = round(score, 2)
 
         if confidence >= 0.80:
-            confidence_label = "🟢 High Confidence"
+            label = "🟢 High Confidence"
         elif confidence >= 0.50:
-            confidence_label = "🟡 Medium Confidence"
+            label = "🟡 Medium Confidence"
         else:
-            confidence_label = "🔴 Low Confidence"
+            label = "🔴 Low Confidence"
 
         st.session_state.chat_history.append(
             {
                 "question": user_question,
                 "answer": answer,
                 "confidence": confidence,
-                "label": confidence_label
+                "label": label
             }
         )
 
-# Chat Display
-st.subheader("💬 Conversation")
+# ---------- CHAT ----------
+
+st.markdown("## 💬 Conversation")
 
 for chat in reversed(st.session_state.chat_history):
 
-    with st.container():
+    st.markdown(
+        f"""
+<div class="user-bubble">
+<b>👤 You</b><br>
+{chat['question']}
+</div>
+""",
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            f"### 🧑 You\n{chat['question']}"
-        )
+    st.markdown(
+        f"""
+<div class="bot-bubble">
+<b>🤖 Assistant</b><br>
+{chat['answer']}
+</div>
+""",
+        unsafe_allow_html=True
+    )
 
-        st.markdown(
-            f"### 🤖 Bot\n{chat['answer']}"
-        )
+    st.caption(
+        f"{chat['label']} | Confidence Score: {chat['confidence']}"
+    )
 
-        st.caption(
-            f"{chat['label']} | Confidence Score: {chat['confidence']}"
-        )
+# ---------- FOOTER ----------
 
-        st.markdown("---")
-
-# Footer
-st.markdown("---")
-
-st.caption(
-    "Built using Python, NLP, TF-IDF, Cosine Similarity, and Streamlit."
-)
+st.markdown("""
+<div class="footer">
+Built using Python • NLP • TF-IDF • Cosine Similarity • Streamlit
+</div>
+""", unsafe_allow_html=True)
