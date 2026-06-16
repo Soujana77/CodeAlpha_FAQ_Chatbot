@@ -1,6 +1,6 @@
 import string
 import pandas as pd
-
+import numpy as np
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
@@ -94,7 +94,49 @@ def get_answer(user_question, df, vectorizer, tfidf_matrix):
 
     return answer, confidence_score
 
+def get_top_matches(
+    user_question,
+    df,
+    vectorizer,
+    tfidf_matrix,
+    top_n=3
+):
+    """
+    Return top matching FAQ questions
+    """
 
+    processed_question = preprocess_text(
+        user_question
+    )
+
+    user_vector = vectorizer.transform(
+        [processed_question]
+    )
+
+    similarity_scores = cosine_similarity(
+        user_vector,
+        tfidf_matrix
+    )[0]
+
+    top_indices = np.argsort(
+        similarity_scores
+    )[::-1][:top_n]
+
+    matches = []
+
+    for idx in top_indices:
+
+        matches.append(
+            {
+                "question": df.iloc[idx]["question"],
+                "score": round(
+                    float(similarity_scores[idx]),
+                    2
+                )
+            }
+        )
+
+    return matches
 def initialize_chatbot():
     """
     Load FAQ data and create TF-IDF vectors

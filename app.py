@@ -2,7 +2,8 @@ import streamlit as st
 
 from chatbot import (
     initialize_chatbot,
-    get_answer
+    get_answer,
+    get_top_matches
 )
 
 st.set_page_config(
@@ -157,6 +158,12 @@ if st.button("Ask"):
             vectorizer,
             tfidf_matrix
         )
+        top_matches = get_top_matches(
+    user_question,
+    faq_df,
+    vectorizer,
+    tfidf_matrix
+)
 
         confidence = round(score, 2)
 
@@ -169,11 +176,12 @@ if st.button("Ask"):
 
         st.session_state.chat_history.append(
             {
-                "question": user_question,
-                "answer": answer,
-                "confidence": confidence,
-                "label": label
-            }
+    "question": user_question,
+    "answer": answer,
+    "confidence": confidence,
+    "label": label,
+    "matches": top_matches
+}
         )
 
 # ---------- CHAT ----------
@@ -205,7 +213,17 @@ for chat in reversed(st.session_state.chat_history):
     st.caption(
         f"{chat['label']} | Confidence Score: {chat['confidence']}"
     )
+with st.expander("🔍 View Top Matches"):
 
+    for i, match in enumerate(
+        chat["matches"],
+        start=1
+    ):
+
+        st.write(
+            f"{i}. {match['question']} "
+            f"({match['score']})"
+        )
 # ---------- FOOTER ----------
 
 st.markdown("""
