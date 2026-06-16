@@ -99,3 +99,53 @@ What is full stack development?,Full stack development involves working on both 
 What is cybersecurity?,Cybersecurity is the practice of protecting systems networks and data from cyber threats.
 What is encryption?,Encryption converts data into a secure format to prevent unauthorized access.
 What is authentication?,Authentication is the process of verifying the identity of a user or system.
+What is data structure?,A data structure is a way of organizing and storing data for efficient access and modification.
+What is an algorithm?,An algorithm is a step by step procedure used to solve a problem or perform a task.
+What is time complexity?,Time complexity measures the amount of time an algorithm takes to run as input size grows.
+What is space complexity?,Space complexity measures the amount of memory an algorithm requires.
+What is Big O notation?,Big O notation describes the performance and scalability of algorithms.
+What is linear search?,Linear search finds an element by checking each item sequentially.
+What is binary search?,Binary search efficiently finds an element in a sorted list by repeatedly dividing the search space.
+What is sorting?,Sorting is the process of arranging data in a specific order.
+What is bubble sort?,Bubble sort repeatedly swaps adjacent elements until the list is sorted.
+What is merge sort?,Merge sort is a divide and conquer sorting algorithm with efficient performance.
+What is quick sort?,Quick sort is a fast sorting algorithm that partitions data around a pivot.
+What is stack?,A stack is a data structure that follows the Last In First Out principle.
+What is queue?,A queue is a data structure that follows the First In First Out principle.
+What is linked list?,A linked list is a linear data structure where elements are connected using pointers.
+What is tree data structure?,A tree is a hierarchical data structure consisting of nodes connected by edges.
+What is graph data structure?,A graph is a collection of nodes and edges representing relationships.
+What is hash table?,A hash table stores key value pairs using a hash function for fast access.
+What is dynamic programming?,Dynamic programming solves complex problems by breaking them into smaller overlapping subproblems.
+What is greedy algorithm?,A greedy algorithm makes the locally optimal choice at each step.
+What is recursion in programming?,Recursion is a technique where a function calls itself to solve a problem.
+What is operating system?,An operating system manages hardware resources and provides services for applications.
+What is process?,A process is a program that is currently being executed.
+What is thread?,A thread is the smallest unit of execution within a process.
+What is multitasking?,Multitasking allows multiple tasks to run concurrently on a computer.
+What is memory management?,Memory management controls how memory is allocated and released in a system.
+What is compiler?,A compiler translates source code into machine code before execution.
+What is interpreter?,An interpreter executes source code line by line.
+What is Linux?,Linux is an open source operating system widely used in servers and development environments.
+What is shell scripting?,Shell scripting automates tasks using commands executed in a shell environment.
+What is command line interface?,A command line interface allows users to interact with a system through text commands.
+What is software engineering?,Software engineering is the systematic design development testing and maintenance of software.
+What is software development lifecycle?,The software development lifecycle defines the stages involved in building software.
+What is Agile methodology?,Agile is a software development approach focused on iterative progress and collaboration.
+What is Scrum?,Scrum is an Agile framework for managing and completing complex projects.
+What is DevOps?,DevOps combines development and operations practices to improve software delivery.
+What is continuous integration?,Continuous integration involves automatically testing and merging code changes.
+What is continuous deployment?,Continuous deployment automatically releases software updates to production.
+What is unit testing?,Unit testing verifies individual components of software independently.
+What is integration testing?,Integration testing validates interactions between multiple software components.
+What is debugging in software engineering?,Debugging is the process of identifying and fixing software defects.
+What is Docker?,Docker is a platform for packaging applications into portable containers.
+What is Kubernetes?,Kubernetes is a platform for automating container deployment scaling and management.
+What is cloud storage?,Cloud storage allows data to be stored and accessed over the internet.
+What is AWS?,AWS is a cloud computing platform provided by Amazon.
+What is Microsoft Azure?,Microsoft Azure is a cloud computing platform provided by Microsoft.
+What is Google Cloud Platform?,Google Cloud Platform provides cloud services for computing storage and machine learning.
+What is edge computing?,Edge computing processes data closer to its source rather than in centralized data centers.
+What is Internet of Things?,The Internet of Things connects physical devices to the internet for data exchange.
+What is blockchain?,Blockchain is a decentralized digital ledger used to record transactions securely.
+What is cryptocurrency?,Cryptocurrency is a digital currency secured by cryptographic techniques.
