@@ -49,3 +49,53 @@ What is data analysis?,Data analysis involves examining cleaning and interpretin
 What is data visualization?,Data visualization is the graphical representation of data using charts graphs and dashboards.
 What is big data?,Big data refers to extremely large and complex datasets that require advanced processing techniques.
 What is cloud computing?,Cloud computing provides computing resources such as storage and servers over the internet.
+What is Python used for?,Python is used for web development automation artificial intelligence machine learning and data analysis.
+Is Python easy to learn?,Python is considered one of the easiest programming languages for beginners due to its simple syntax.
+What is Python syntax?,Python syntax refers to the set of rules that define how Python programs are written.
+What is a list in Python?,A list is a mutable ordered collection used to store multiple items in Python.
+What is a tuple in Python?,A tuple is an immutable ordered collection of items in Python.
+What is a dictionary in Python?,A dictionary stores data as key value pairs in Python.
+What is a set in Python?,A set is an unordered collection of unique elements in Python.
+What is exception handling?,Exception handling is the process of managing runtime errors using try except blocks.
+What is a module in Python?,A module is a file containing Python code that can be imported into another program.
+What is a package in Python?,A package is a collection of related Python modules organized in directories.
+What is pip?,Pip is the package manager used to install and manage Python libraries.
+What is virtual environment?,A virtual environment is an isolated Python environment used to manage project dependencies.
+What is recursion?,Recursion is a programming technique where a function calls itself.
+What is lambda function?,A lambda function is a small anonymous function defined using the lambda keyword.
+What is list comprehension?,List comprehension is a concise way to create lists in Python.
+What is machine learning model?,A machine learning model is a mathematical representation trained on data to make predictions.
+What is classification in machine learning?,Classification is a supervised learning task used to predict categories or labels.
+What is regression in machine learning?,Regression predicts continuous numerical values based on input data.
+What is clustering?,Clustering is an unsupervised learning technique that groups similar data points together.
+What is K Means?,K Means is a clustering algorithm that partitions data into K groups.
+What is decision tree?,A decision tree is a machine learning algorithm that uses branching logic for predictions.
+What is random forest?,Random Forest is an ensemble learning algorithm that combines multiple decision trees.
+What is support vector machine?,Support Vector Machine is a supervised learning algorithm used for classification and regression.
+What is feature engineering?,Feature engineering is the process of creating meaningful input features for machine learning models.
+What is feature selection?,Feature selection involves choosing the most relevant features for model training.
+What is training data?,Training data is the dataset used to train a machine learning model.
+What is testing data?,Testing data is used to evaluate the performance of a trained model.
+What is model accuracy?,Model accuracy measures the percentage of correct predictions made by a model.
+What is precision in machine learning?,Precision measures the proportion of positive predictions that are actually correct.
+What is recall in machine learning?,Recall measures the proportion of actual positives correctly identified by a model.
+What is F1 score?,F1 Score is the harmonic mean of precision and recall.
+What is confusion matrix?,A confusion matrix is a table used to evaluate classification model performance.
+What is data mining?,Data mining is the process of discovering patterns and insights from large datasets.
+What is exploratory data analysis?,Exploratory Data Analysis is the process of summarizing and visualizing datasets.
+What is SQL?,SQL stands for Structured Query Language and is used to manage relational databases.
+What is a database?,A database is an organized collection of data stored electronically.
+What is normalization in databases?,Normalization organizes database tables to reduce redundancy and improve consistency.
+What is primary key?,A primary key uniquely identifies each record in a database table.
+What is foreign key?,A foreign key establishes a relationship between two database tables.
+What is REST API?,A REST API is an interface that follows Representational State Transfer principles for communication.
+What is JSON?,JSON is a lightweight data interchange format used for storing and exchanging data.
+What is HTML?,HTML is the standard markup language used to structure web pages.
+What is CSS?,CSS is used to style and design web pages.
+What is JavaScript?,JavaScript is a programming language used to create interactive web applications.
+What is frontend development?,Frontend development focuses on building the user interface of web applications.
+What is backend development?,Backend development handles server side logic databases and APIs.
+What is full stack development?,Full stack development involves working on both frontend and backend systems.
+What is cybersecurity?,Cybersecurity is the practice of protecting systems networks and data from cyber threats.
+What is encryption?,Encryption converts data into a secure format to prevent unauthorized access.
+What is authentication?,Authentication is the process of verifying the identity of a user or system.
