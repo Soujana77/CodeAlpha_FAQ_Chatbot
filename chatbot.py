@@ -85,15 +85,46 @@ def get_answer(user_question, df, vectorizer, tfidf_matrix):
     confidence_score = similarity_scores[0][best_match_index]
 
     if confidence_score < 0.30:
+
+        top_indices = np.argsort(
+            similarity_scores[0]
+        )[::-1][:3]
+
+        suggestions = []
+
+        for idx in top_indices:
+
+            suggestions.append(
+                df.iloc[idx]["question"]
+            )
+
+        response = (
+            "Sorry, I couldn't find an exact answer.\n\n"
+            "You may be interested in:\n"
+        )
+
+        for i, question in enumerate(
+            suggestions,
+            start=1
+        ):
+
+            response += (
+                f"\n{i}. {question}"
+            )
+
         return (
-            "Sorry, I couldn't find a relevant answer.",
+            response,
             confidence_score
         )
 
-    answer = df.iloc[best_match_index]["answer"]
+    answer = df.iloc[
+        best_match_index
+    ]["answer"]
 
-    return answer, confidence_score
-
+    return (
+        answer,
+        confidence_score
+    )
 def get_top_matches(
     user_question,
     df,

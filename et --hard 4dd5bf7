@@ -1,0 +1,24 @@
+[33m54f8e8a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Enhanced typography and readability
+[33maffdf5d[m Implemented modern chat interface
+[33mee781f1[m Added chatbot analytics dashboard
+[33m6380ac5[m Added interactive suggested questions
+[33m5ad7bd7[m Added topic explorer and question recommendations
+[33mbd0be38[m Added FAQ categorization system
+[33mea13c89[m Expanded FAQ knowledge base to 150 entries
+[33med4b7e7[m Added top similarity match visualization
+[33m865b8e6[m Expanded FAQ knowledge base to 100 entries
+[33m4dd5bf7[m Improved Streamlit interface and chat experience
+[33mde41fe7[m Enhanced UI with sidebar and chat management
+[33m6d7b3d0[m Added confidence indicators and improved chat history
+[33m3a4dcf9[m Expanded FAQ knowledge base to 50 entries
+[33m8ab7c4b[m Built initial Streamlit chatbot interface
+[33m9e3ffbe[m Refactored chatbot backend for Streamlit integration
+[33mff96e02[m Built terminal-based FAQ chatbot
+[33m319823f[m Added confidence threshold for FAQ responses
+[33mf44f1da[m Implemented FAQ similarity matching engine
+[33m092b37a[m Loaded FAQ dataset and preprocessing pipeline
+[33m085ceb2[m Loaded FAQ dataset and preprocessing pipeline
+[33m9b620f7[m Implemented NLP text preprocessing
+[33me0762e2[m Added FAQ dataset structure
+[33mce0b7c1[m Configured development environment
+[33m69c3675[m Initial project setup
