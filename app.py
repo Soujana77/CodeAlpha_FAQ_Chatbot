@@ -213,17 +213,18 @@ for chat in reversed(st.session_state.chat_history):
     st.caption(
         f"{chat['label']} | Confidence Score: {chat['confidence']}"
     )
-with st.expander("🔍 View Top Matches"):
 
-    for i, match in enumerate(
-        chat["matches"],
-        start=1
-    ):
+    with st.expander("🔍 View Top Matches"):
 
-        st.write(
-            f"{i}. {match['question']} "
-            f"({match['score']})"
-        )
+        for i, match in enumerate(
+            chat["matches"],
+            start=1
+        ):
+
+            st.write(
+                f"{i}. {match['question']} "
+                f"({match['score']})"
+            )
 # ---------- FOOTER ----------
 
 st.markdown("""
