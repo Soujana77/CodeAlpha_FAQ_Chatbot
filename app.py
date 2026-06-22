@@ -17,46 +17,145 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.main {
-    padding-top: 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif !important;
 }
 
+/* Main background */
+.stApp {
+    background: #0f172a;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #111827;
+    border-right: 1px solid #1f2937;
+}
+
+section[data-testid="stSidebar"] * {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* Hero */
 .hero {
     text-align: center;
-    padding: 1.5rem;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #1f2937, #374151);
+    padding: 40px;
+    border-radius: 24px;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
+    box-shadow: 0px 15px 40px rgba(37,99,235,0.3);
 }
 
+.hero h1 {
+    font-size: 56px !important;
+    font-weight: 800 !important;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+/* Input box */
+.stTextInput input {
+    background: #1e293b !important;
+    color: white !important;
+    border: 2px solid #334155 !important;
+    border-radius: 12px !important;
+    padding: 14px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+/* Ask button */
+.stButton button {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    ) !important;
+
+    color: white !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    padding: 12px 24px !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+}
+
+.stButton button:hover {
+    transform: scale(1.03);
+}
+
+/* User message */
 .user-bubble {
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #2563eb;
+    padding: 18px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
     color: white;
-    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
+/* Bot message */
 .bot-bubble {
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #f3f4f6;
-    color: black;
-    margin-bottom: 10px;
+    padding: 18px;
+    border-radius: 18px;
+    background: #1e293b;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    border: 1px solid #334155;
 }
 
-.metric-card {
-    padding: 1rem;
-    border-radius: 12px;
-    background-color: #f3f4f6;
-    text-align: center;
+/* Headings */
+h1 {
+    font-weight: 800 !important;
 }
 
+h2 {
+    font-size: 40px !important;
+    font-weight: 800 !important;
+    color: white !important;
+}
+
+h3 {
+    font-weight: 700 !important;
+    color: white !important;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+}
+
+/* Footer */
 .footer {
     text-align: center;
-    color: gray;
-    margin-top: 30px;
+    color: #94a3b8;
+    font-size: 15px;
+    margin-top: 40px;
 }
 
 </style>
@@ -186,7 +285,14 @@ if st.button("Ask"):
 
 # ---------- CHAT ----------
 
-st.markdown("## 💬 Conversation")
+st.markdown(
+    """
+    <h2>
+    💬 Conversation
+    </h2>
+    """,
+    unsafe_allow_html=True
+)
 
 for chat in reversed(st.session_state.chat_history):
 

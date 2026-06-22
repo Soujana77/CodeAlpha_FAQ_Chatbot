@@ -149,53 +149,53 @@ What is edge computing?,Edge computing processes data closer to its source rathe
 What is Internet of Things?,The Internet of Things connects physical devices to the internet for data exchange.
 What is blockchain?,Blockchain is a decentralized digital ledger used to record transactions securely.
 What is cryptocurrency?,Cryptocurrency is a digital currency secured by cryptographic techniques.
-What is Docker?,Docker is a containerization platform used to package and deploy applications.,Cloud Computing
-What is Kubernetes?,Kubernetes is an orchestration platform for managing containers.,Cloud Computing
-What is DevOps?,DevOps combines development and operations practices to improve software delivery.,Software Engineering
-What is CI/CD?,CI/CD automates code integration testing and deployment.,Software Engineering
-What is Git?,Git is a distributed version control system.,Software Engineering
-What is GitHub?,GitHub is a cloud platform for hosting Git repositories.,Software Engineering
-What is REST API?,REST API enables communication between applications using HTTP methods.,Web Development
-What is GraphQL?,GraphQL is a query language for APIs.,Web Development
-What is JSON?,JSON is a lightweight data exchange format.,Web Development
-What is XML?,XML is a markup language used for storing and transporting data.,Web Development
-What is SQL?,SQL is a language used to manage relational databases.,Databases
-What is MySQL?,MySQL is an open-source relational database management system.,Databases
-What is PostgreSQL?,PostgreSQL is an advanced open-source relational database.,Databases
-What is MongoDB?,MongoDB is a NoSQL database that stores data in documents.,Databases
-What is Database Normalization?,Normalization organizes data to reduce redundancy.,Databases
-What is a Primary Key?,A primary key uniquely identifies a record in a table.,Databases
-What is a Foreign Key?,A foreign key links records between tables.,Databases
-What is Big Data?,Big Data refers to extremely large datasets requiring advanced processing.,Data Science
-What is Data Mining?,Data mining is the process of discovering patterns in data.,Data Science
-What is Data Visualization?,Data visualization represents data graphically.,Data Science
-What is Tableau?,Tableau is a popular data visualization tool.,Data Science
-What is Power BI?,Power BI is Microsoft's business intelligence platform.,Data Science
-What is Feature Engineering?,Feature engineering creates useful features for machine learning models.,Machine Learning
-What is Cross Validation?,Cross validation evaluates model performance using multiple data splits.,Machine Learning
-What is Overfitting?,Overfitting occurs when a model learns training data too well.,Machine Learning
-What is Underfitting?,Underfitting occurs when a model fails to learn important patterns.,Machine Learning
-What is Gradient Descent?,Gradient descent is an optimization algorithm used in machine learning.,Machine Learning
-What is Random Forest?,Random Forest is an ensemble learning algorithm using multiple decision trees.,Machine Learning
-What is XGBoost?,XGBoost is a powerful gradient boosting algorithm.,Machine Learning
-What is Reinforcement Learning?,Reinforcement learning trains agents using rewards and penalties.,Artificial Intelligence
-What is Computer Vision?,Computer vision enables machines to understand images and videos.,Artificial Intelligence
-What is Generative AI?,Generative AI creates new content such as text images and code.,Artificial Intelligence
-What is ChatGPT?,ChatGPT is an AI chatbot developed by OpenAI.,Artificial Intelligence
-What is Prompt Engineering?,Prompt engineering is the practice of designing effective AI prompts.,Artificial Intelligence
-What is BERT?,BERT is a transformer-based NLP model developed by Google.,NLP
-What is GPT?,GPT is a transformer model used for text generation.,NLP
-What is Named Entity Recognition?,NER identifies entities such as names locations and organizations in text.,NLP
-What is Sentiment Analysis?,Sentiment analysis determines emotional tone in text.,NLP
-What is Machine Translation?,Machine translation automatically translates text between languages.,NLP
-What is Cyber Security?,Cyber security protects systems networks and data from attacks.,Cyber Security
-What is Encryption?,Encryption converts data into a secure unreadable format.,Cyber Security
-What is Malware?,Malware is malicious software designed to harm systems.,Cyber Security
-What is Phishing?,Phishing is a cyberattack that tricks users into revealing information.,Cyber Security
-What is Firewall?,A firewall monitors and controls network traffic.,Cyber Security
-What is Blockchain?,Blockchain is a decentralized ledger technology.,Blockchain
-What is Smart Contract?,A smart contract is a self-executing blockchain program.,Blockchain
-What is Ethereum?,Ethereum is a blockchain platform supporting smart contracts.,Blockchain
-What is Cryptocurrency?,Cryptocurrency is a digital currency secured by cryptography.,Blockchain
-What is Bitcoin?,Bitcoin is the first decentralized cryptocurrency.,Blockchain
-What is Web3?,Web3 is the decentralized version of the internet powered by blockchain.,Blockchain
+What is Docker?,Docker is a containerization platform used to package and deploy applications.
+What is Kubernetes?,Kubernetes is an orchestration platform for managing containers.
+What is DevOps?,DevOps combines development and operations practices to improve software delivery.
+What is CI/CD?,CI/CD automates code integration testing and deployment.
+What is Git?,Git is a distributed version control system.
+What is GitHub?,GitHub is a cloud platform for hosting Git repositories.
+What is REST API?,REST API enables communication between applications using HTTP methods.
+What is GraphQL?,GraphQL is a query language for APIs.
+What is JSON?,JSON is a lightweight data exchange format.
+What is XML?,XML is a markup language used for storing and transporting data.
+What is SQL?,SQL is a language used to manage relational databases.
+What is MySQL?,MySQL is an open-source relational database management system.
+What is PostgreSQL?,PostgreSQL is an advanced open-source relational database.
+What is MongoDB?,MongoDB is a NoSQL database that stores data in documents.
+What is Database Normalization?,Normalization organizes data to reduce redundancy.
+What is a Primary Key?,A primary key uniquely identifies a record in a table.
+What is a Foreign Key?,A foreign key links records between tables.
+What is Big Data?,Big Data refers to extremely large datasets requiring advanced processing.
+What is Data Mining?,Data mining is the process of discovering patterns in data.
+What is Data Visualization?,Data visualization represents data graphically.
+What is Tableau?,Tableau is a popular data visualization tool.
+What is Power BI?,Power BI is Microsoft's business intelligence platform.
+What is Feature Engineering?,Feature engineering creates useful features for machine learning models.
+What is Cross Validation?,Cross validation evaluates model performance using multiple data splits.
+What is Overfitting?,Overfitting occurs when a model learns training data too well.
+What is Underfitting?,Underfitting occurs when a model fails to learn important patterns.
+What is Gradient Descent?,Gradient descent is an optimization algorithm used in machine learning.
+What is Random Forest?,Random Forest is an ensemble learning algorithm using multiple decision trees.
+What is XGBoost?,XGBoost is a powerful gradient boosting algorithm.
+What is Reinforcement Learning?,Reinforcement learning trains agents using rewards and penalties.
+What is Computer Vision?,Computer vision enables machines to understand images and videos.
+What is Generative AI?,Generative AI creates new content such as text images and code.
+What is ChatGPT?,ChatGPT is an AI chatbot developed by OpenAI.
+What is Prompt Engineering?,Prompt engineering is the practice of designing effective AI prompts.
+What is BERT?,BERT is a transformer-based NLP model developed by Google.
+What is GPT?,GPT is a transformer model used for text generation.
+What is Named Entity Recognition?,NER identifies entities such as names locations and organizations in text.
+What is Sentiment Analysis?,Sentiment analysis determines emotional tone in text.
+What is Machine Translation?,Machine translation automatically translates text between languages.
+What is Cyber Security?,Cyber security protects systems networks and data from attacks.
+What is Encryption?,Encryption converts data into a secure unreadable format.
+What is Malware?,Malware is malicious software designed to harm systems.
+What is Phishing?,Phishing is a cyberattack that tricks users into revealing information.
+What is Firewall?,A firewall monitors and controls network traffic.
+What is Blockchain?,Blockchain is a decentralized ledger technology.
+What is Smart Contract?,A smart contract is a self-executing blockchain program.
+What is Ethereum?,Ethereum is a blockchain platform supporting smart contracts.
+What is Cryptocurrency?,Cryptocurrency is a digital currency secured by cryptography.
+What is Bitcoin?,Bitcoin is the first decentralized cryptocurrency.
+What is Web3?,Web3 is the decentralized version of the internet powered by blockchain.
