@@ -77,7 +77,22 @@ def create_tfidf_vectors(df):
         tfidf_matrix
     )
 
+greetings = {
+    "hi":
+    "Hello! 👋 How can I help you today?",
 
+    "hello":
+    "Hello! 👋 Ask me anything about AI and Programming.",
+
+    "hey":
+    "Hey there! 🚀 Ready to learn something new?",
+
+    "good morning":
+    "Good morning! ☀️ What would you like to know?",
+
+    "good evening":
+    "Good evening! 🌙 Ask me any technical question."
+}
 def get_answer(
     user_question,
     df,
@@ -87,6 +102,15 @@ def get_answer(
     """
     Get best answer
     """
+
+    if user_question.lower() in greetings:
+
+        return (
+            greetings[
+                user_question.lower()
+            ],
+            1.0
+        )
 
     processed_question = (
         preprocess_text(

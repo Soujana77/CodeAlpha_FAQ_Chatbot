@@ -1,5 +1,6 @@
 import streamlit as st
-
+import time
+from streamlit_mic_recorder import mic_recorder
 from chatbot import (
     initialize_chatbot,
     get_answer,
@@ -243,37 +244,59 @@ Try asking:
 
 # ---------- INPUT ----------
 
+st.subheader("💬 Ask a Question")
+
 user_question = st.text_input(
-    "Ask your question:"
+    "Type your question here..."
 )
 
+voice_data = mic_recorder(
+    start_prompt="🎤 Start Recording",
+    stop_prompt="⏹ Stop Recording",
+    key="recorder"
+)
+
+if voice_data:
+    st.success(
+        "🎙 Voice recorded successfully!"
+    )
 if st.button("Ask"):
 
     if user_question.strip():
+     with st.spinner(
+    "🤖 AI is thinking..."
+):
+        import time
 
-        answer, score = get_answer(
-            user_question,
-            faq_df,
-            vectorizer,
-            tfidf_matrix
-        )
-        top_matches = get_top_matches(
+with st.spinner(
+    "🤖 AI is thinking..."
+):
+
+    time.sleep(1)
+
+    answer, score = get_answer(
+        user_question,
+        faq_df,
+        vectorizer,
+        tfidf_matrix
+    )
+top_matches = get_top_matches(
     user_question,
     faq_df,
     vectorizer,
     tfidf_matrix
 )
 
-        confidence = round(score, 2)
+confidence = round(score, 2)
 
-        if confidence >= 0.80:
+if confidence >= 0.80:
             label = "🟢 High Confidence"
-        elif confidence >= 0.50:
+elif confidence >= 0.50:
             label = "🟡 Medium Confidence"
-        else:
+else:
             label = "🔴 Low Confidence"
 
-        st.session_state.chat_history.append(
+st.session_state.chat_history.append(
             {
     "question": user_question,
     "answer": answer,
