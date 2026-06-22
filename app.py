@@ -260,51 +260,53 @@ if voice_data:
     st.success(
         "🎙 Voice recorded successfully!"
     )
+
 if st.button("Ask"):
 
-    if user_question.strip():
-     with st.spinner(
-    "🤖 AI is thinking..."
-):
-        import time
+ if user_question.strip():
 
-with st.spinner(
-    "🤖 AI is thinking..."
-):
+    with st.spinner(
+        "🤖 AI is thinking..."
+    ):
 
-    time.sleep(1)
+        time.sleep(1)
 
-    answer, score = get_answer(
-        user_question,
-        faq_df,
-        vectorizer,
-        tfidf_matrix
-    )
-top_matches = get_top_matches(
-    user_question,
-    faq_df,
-    vectorizer,
-    tfidf_matrix
-)
-
-confidence = round(score, 2)
-
-if confidence >= 0.80:
-            label = "🟢 High Confidence"
-elif confidence >= 0.50:
-            label = "🟡 Medium Confidence"
-else:
-            label = "🔴 Low Confidence"
-
-st.session_state.chat_history.append(
-            {
-    "question": user_question,
-    "answer": answer,
-    "confidence": confidence,
-    "label": label,
-    "matches": top_matches
-}
+        answer, score = get_answer(
+            user_question,
+            faq_df,
+            vectorizer,
+            tfidf_matrix
         )
+
+        top_matches = get_top_matches(
+            user_question,
+            faq_df,
+            vectorizer,
+            tfidf_matrix
+        )
+
+    confidence = round(score, 2)
+
+    if confidence >= 0.80:
+        label = "🟢 High Confidence"
+
+    elif confidence >= 0.50:
+        label = "🟡 Medium Confidence"
+
+    else:
+        label = "🔴 Low Confidence"
+
+    st.session_state.chat_history.append(
+        {
+            "question": user_question,
+            "answer": answer,
+            "confidence": confidence,
+            "label": label,
+            "matches": top_matches
+        }
+    )
+
+
 
 # ---------- CHAT ----------
 
