@@ -1,11 +1,17 @@
 import streamlit as st
 import time
+import pyttsx3
 from streamlit_mic_recorder import mic_recorder
 from chatbot import (
     initialize_chatbot,
     get_answer,
     get_top_matches
 )
+
+def speak_text(text):
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
 
 st.set_page_config(
     page_title="AI FAQ Assistant",
@@ -17,8 +23,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap)');
 
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif !important;
@@ -84,17 +89,11 @@ section[data-testid="stSidebar"] * {
         #2563eb,
         #7c3aed
     ) !important;
-
     color: white !important;
-
     border: none !important;
-
     border-radius: 12px !important;
-
     padding: 12px 24px !important;
-
     font-size: 16px !important;
-
     font-weight: 700 !important;
 }
 
@@ -178,39 +177,21 @@ if "chat_history" not in st.session_state:
 # ---------- SIDEBAR ----------
 
 with st.sidebar:
-
     st.title("🤖 AI FAQ Assistant")
-
     st.markdown("---")
-
     st.subheader("About Project")
-
     st.write("""
     AI-powered FAQ chatbot built using:
-
     • Python
-
     • NLP
-
     • TF-IDF
-
     • Cosine Similarity
-
     • Streamlit
     """)
-
     st.markdown("---")
-
-    st.metric(
-        "Knowledge Base",
-        f"{len(faq_df)} FAQs"
-    )
-
-    st.metric(
-        "Conversations",
-        len(st.session_state.chat_history)
-    )
-
+    st.metric("Knowledge Base", f"{len(faq_df)} FAQs")
+    st.metric("Conversations", len(st.session_state.chat_history))
+    
     if st.button("🗑 Clear Chat"):
         st.session_state.chat_history = []
         st.rerun()
@@ -227,18 +208,12 @@ st.markdown("""
 # ---------- WELCOME ----------
 
 if len(st.session_state.chat_history) == 0:
-
     st.info("""
 Try asking:
-
 • What is Machine Learning?
-
 • What is TensorFlow?
-
 • Explain NLP
-
 • What is GitHub?
-
 • What is Cloud Computing?
 """)
 
@@ -246,9 +221,7 @@ Try asking:
 
 st.subheader("💬 Ask a Question")
 
-user_question = st.text_input(
-    "Type your question here..."
-)
+user_question = st.text_input("Type your question here...")
 
 voice_data = mic_recorder(
     start_prompt="🎤 Start Recording",
@@ -257,105 +230,67 @@ voice_data = mic_recorder(
 )
 
 if voice_data:
-    st.success(
-        "🎙 Voice recorded successfully!"
-    )
+    st.success("🎙 Voice recorded successfully!")
 
 if st.button("Ask"):
+    if user_question.strip():
+        with st.spinner("🤖 AI is thinking..."):
+            time.sleep(1)
+            answer, score = get_answer(
+                user_question,
+                faq_df,
+                vectorizer,
+                tfidf_matrix
+            )
+            top_matches = get_top_matches(
+                user_question,
+                faq_df,
+                vectorizer,
+                tfidf_matrix
+            )
 
- if user_question.strip():
+        confidence = round(score, 2)
+        
+        if confidence >= 0.80:
+            label = "🟢 High Confidence"
+        elif confidence >= 0.50:
+            label = "🟡 Medium Confidence"
+        else:
+            label = "🔴 Low Confidence"
 
-    with st.spinner(
-        "🤖 AI is thinking..."
-    ):
-
-        time.sleep(1)
-
-        answer, score = get_answer(
-            user_question,
-            faq_df,
-            vectorizer,
-            tfidf_matrix
-        )
-
-        top_matches = get_top_matches(
-            user_question,
-            faq_df,
-            vectorizer,
-            tfidf_matrix
-        )
-
-    confidence = round(score, 2)
-
-    if confidence >= 0.80:
-        label = "🟢 High Confidence"
-
-    elif confidence >= 0.50:
-        label = "🟡 Medium Confidence"
-
-    else:
-        label = "🔴 Low Confidence"
-
-    st.session_state.chat_history.append(
-        {
+        st.session_state.chat_history.append({
             "question": user_question,
             "answer": answer,
             "confidence": confidence,
             "label": label,
             "matches": top_matches
-        }
-    )
-
-
+        })
 
 # ---------- CHAT ----------
 
-st.markdown(
-    """
-    <h2>
-    💬 Conversation
-    </h2>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""<h2>💬 Conversation</h2>""", unsafe_allow_html=True)
 
 for chat in reversed(st.session_state.chat_history):
+    st.markdown(f"""
+    <div class="user-bubble">
+    <b>👤 You</b><br>
+    {chat['question']}
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.markdown(
-        f"""
-<div class="user-bubble">
-<b>👤 You</b><br>
-{chat['question']}
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    st.markdown(f"""
+    <div class="bot-bubble">
+    <b>🤖 Assistant</b><br>
+    {chat['answer']}
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.markdown(
-        f"""
-<div class="bot-bubble">
-<b>🤖 Assistant</b><br>
-{chat['answer']}
-</div>
-""",
-        unsafe_allow_html=True
-    )
-
-    st.caption(
-        f"{chat['label']} | Confidence Score: {chat['confidence']}"
-    )
+    st.caption(f"{chat['label']} | Confidence Score: {chat['confidence']}")
 
     with st.expander("🔍 View Top Matches"):
+        for i, match in enumerate(chat["matches"], start=1):
+            st.write(f"{i}. {match['question']} ({match['score']})")
 
-        for i, match in enumerate(
-            chat["matches"],
-            start=1
-        ):
-
-            st.write(
-                f"{i}. {match['question']} "
-                f"({match['score']})"
-            )
 # ---------- FOOTER ----------
 
 st.markdown("""
