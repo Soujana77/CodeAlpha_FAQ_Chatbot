@@ -1,6 +1,5 @@
 import streamlit as st
 import time
-import pyttsx3
 from streamlit_mic_recorder import mic_recorder
 from chatbot import (
     initialize_chatbot,
@@ -191,6 +190,10 @@ with st.sidebar:
     st.markdown("---")
     st.metric("Knowledge Base", f"{len(faq_df)} FAQs")
     st.metric("Conversations", len(st.session_state.chat_history))
+    st.metric(
+    "Categories",
+    15
+)
     
     if st.button("🗑 Clear Chat"):
         st.session_state.chat_history = []
