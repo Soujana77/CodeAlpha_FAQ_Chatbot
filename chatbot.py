@@ -64,7 +64,9 @@ def create_tfidf_vectors(df):
     Create TF-IDF vectors
     """
 
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(
+        ngram_range=(1, 2)
+    )
 
     tfidf_matrix = (
         vectorizer.fit_transform(
