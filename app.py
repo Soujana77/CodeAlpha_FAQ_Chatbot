@@ -212,12 +212,12 @@ st.markdown("""
 
 if len(st.session_state.chat_history) == 0:
     st.info("""
-Try asking:
-• What is Machine Learning?
-• What is TensorFlow?
-• Explain NLP
-• What is GitHub?
-• What is Cloud Computing?
+Try asking:\n
+• What is Machine Learning?\n
+• What is TensorFlow?\n
+• Explain NLP\n
+• What is GitHub?\n
+• What is Cloud Computing?\n
 """)
 
 # ---------- INPUT ----------
